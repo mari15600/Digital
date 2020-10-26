@@ -1,0 +1,5 @@
+module AND3E( input A1, input B1, input C1, output S1);
+
+		assign S1 = A1 & B1 & C1;
+
+endmodule
