@@ -3,3 +3,15 @@ module AND3E( input A1, input B1, input C1, output S1);
 		assign S1 = A1 & B1 & C1;
 
 endmodule
+//////////////////////////////////////////////////////////
+module AND2E( input A2, input B2, output S2);
+
+		assign S2 = A2 & B2;
+
+endmodule
+/////////////////////////////////////////////////////////
+module NOT( input A3, output S3);
+
+		assign S3 = ~A3;
+
+endmodule
