@@ -32,3 +32,81 @@ module OR3E ( input A5, input B5, input C5, output S5);
 		
 endmodule
 /////////////////////////////////////////////////////////////////////////////////
+
+module segmentoA(
+    input A,B,C,D,
+    output Bit0
+    );
+	
+	wire a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14;
+	 
+	//Seccion1
+	
+	NOT NOTA1(.A3(C),
+				.S3(a1)
+				);
+	
+	AND2E ANDA1(.A2(a1),
+					.B2(A),
+					.S2(a2)
+					);
+	
+	NOT NOTA2(.A3(D),
+				.S3(a3)
+				);
+				
+	OR2E ORA1(.A4(a2),
+				.B4(a3),  
+				.S4(a4)
+				);
+					
+	NOT NOTA3(.A3(B),
+				.S3(a5)
+				);
+				
+	AND2E ANDA2(.A2(a4),
+					.B2(a5),
+					.S2(a6));
+					
+	//Seccion 2
+
+	AND2E ANDA4(.A2(B),
+					.B2(D),
+					.S2(a7));
+					
+	OR2E ORA2(.A4(a7),
+				.B4(C),  
+				.S4(a8)
+				);
+				
+	NOT NOTA4(.A3(A),
+				.S3(a9)
+				);	
+	
+	AND2E ANDA5(.A2(a8),
+					.B2(a9),
+					.S2(a10));
+					
+	//Seccion 3				
+					
+	AND2E ANDA6(.A2(B),
+					.B2(C),
+					.S2(a11)
+					);
+	//Seccion 4
+
+	AND3E ANDA7(.A1(A),
+					.B1(a1), 
+					.C1(a3), 
+					.S1(a14)
+					);
+	//Salida
+	
+	OR4E ORA3(.A6(a6),
+				.B6(a10),
+				.C6(a11), 
+				.D6(a14), 
+				.S6(Bit0)
+				);	
+				
+endmodule
